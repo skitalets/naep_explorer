@@ -20,8 +20,8 @@ shinyUI(pageWithSidebar(
                 tabsetPanel(
                         tabPanel("About",
                                  h3("About the NAEP Visualizer"),
-                                 p(HTML("The National Assessment of Educational
-                                        Progress (NAEP) is a standardized test
+                                 p(HTML("The <a href=\"http://nces.ed.gov/nationsreportcard/\">National Assessment of Educational
+                                        Progress</a> (NAEP) is a standardized test
                                         administered by the National Center for
                                         Education Statistics at the U.S.
                                         Department of Education. Often termed
@@ -49,7 +49,7 @@ shinyUI(pageWithSidebar(
                                         bubble before pressing play and watch
                                         the plot draw trails highlighting that
                                         state's performance.")),
-                                 p(HTML("Please note that while state NAEP in
+                                 p(HTML("Please note that while State NAEP in
                                         these subjects and grades is only
                                         administered every two years, Google
                                         Charts interpolates data for the
