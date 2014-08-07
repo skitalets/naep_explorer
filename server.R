@@ -17,11 +17,12 @@ shinyServer(
                                         "scale.score.reading",
                                         options = list(
                                                 title = "Here",
+                                                vAxis = "{minValue: 190}",
                                                 showAdvancedPanel = FALSE,
                                                 showXMetricPicker = FALSE,
                                                 showYMetricPicker = FALSE,
                                                 showXScalePicker = FALSE,
                                                 showYScalePicker = FALSE,
                                                 showSidePanel = FALSE)))
-        }
+                        }
 )
