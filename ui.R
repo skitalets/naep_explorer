@@ -1,7 +1,7 @@
 library(googleVis)
 
 shinyUI(pageWithSidebar(
-        headerPanel("Visualizing State Growth on NAEP, 2005-2013"),
+        headerPanel("Visualizing State Growth on NAEP, 2003-2013"),
         sidebarPanel(
                 h4("Choose Your Parameters"),
                 selectInput("gender", "Gender:", choices =
