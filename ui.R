@@ -52,8 +52,8 @@ shinyUI(pageWithSidebar(
                                  p(HTML("Please note that while State NAEP in
                                         these subjects and grades is only
                                         administered every two years, Google
-                                        Charts interpolates data for the
-                                        even-numbered years when NAEP is not
+                                        Charts <a href=\"https://code.google.com/p/google-visualization-api-issues/issues/detail?id=102\">interpolates data for the
+                                        even-numbered years</a> when NAEP is not
                                         administered if the user tracks
                                         individual states. Data for
                                         even-numbered years in trails should be
