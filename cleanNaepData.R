@@ -98,6 +98,15 @@ processFiles <- function(math, reading, math.gender, reading.gender, grade) {
 ## end of function definition
 
 # Skip the first 10 rows and read.xlsx() magically finds the data
+math.grade4 <- data.table(read.xlsx("data/Math-Grade4.xls", 1, startRow = 11,
+                                    endRow = 323))
+reading.grade4 <- data.table(read.xlsx("data/Reading-Grade4.xls", 1,
+                                       startRow = 11, endRow = 323))
+math.grade4.gender <- data.table(read.xlsx("data/Math-Grade4-Gender.xls", 1,
+                                           startRow = 11, endRow = 323))
+reading.grade4.gender <- data.table(read.xlsx("data/Reading-Grade4-Gender.xls",
+                                              1, startRow = 11, endRow = 323))
+
 math.grade8 <- data.table(read.xlsx("data/Math-Grade8.xls", 1, startRow = 11,
                                     endRow = 323))
 reading.grade8 <- data.table(read.xlsx("data/Reading-Grade8.xls", 1,
@@ -107,12 +116,42 @@ math.grade8.gender <- data.table(read.xlsx("data/Math-Grade8-Gender.xls", 1,
 reading.grade8.gender <- data.table(read.xlsx("data/Reading-Grade8-Gender.xls",
                                               1, startRow = 11, endRow = 323))
 
+grade4 <- processFiles(math.grade4, reading.grade4, math.grade4.gender,
+                       reading.grade4.gender, 4)
 grade8 <- processFiles(math.grade8, reading.grade8, math.grade8.gender,
                        reading.grade8.gender, 8)
 
-naep.clean <- rbindlist(list(grade8))
+naep.clean <- rbindlist(list(grade4, grade8))
 
 write.csv(naep.clean, file = "naep_clean.csv", row.names = FALSE)
+
+# Reading-Grade4.xls
+# Subject, Grade:Reading, Grade 4    
+# Jurisdictions: Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming, DoDEA
+# Measure: Composite scale
+# Variable: All students
+# Years: 2013, 2011, 2009, 2007, 2005, 2003
+
+# Math-Grade4.xls
+# Subject, Grade:Mathematics, Grade 4    
+# Jurisdictions: Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming, DoDEA
+# Measure: Composite scale
+# Variable: All students
+# Years: 2013, 2011, 2009, 2007, 2005, 2003
+
+# Reading-Grade4-Gender.xls
+# Subject, Grade:Reading, Grade 4    
+# Jurisdictions: Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming, DoDEA
+# Measure: Composite scale
+# Variable: Gender
+# Years: 2013, 2011, 2009, 2007, 2005, 2003
+
+# Math-Grade4-Gender.xls
+# Subject, Grade:Mathematics, Grade 4    
+# Jurisdictions: Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District of Columbia, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming, DoDEA
+# Measure: Composite scale
+# Variable: Gender
+# Years: 2013, 2011, 2009, 2007, 2005, 2003
 
 # Reading-Grade8.xls
 # Subject, Grade:Reading, Grade 8    

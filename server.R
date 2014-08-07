@@ -7,7 +7,8 @@ shinyServer(
                                "Female" = "female")
                 })
                 naep.by.gender <- reactive({
-                        naep[gender == genderChoice(), ]
+                        naep[gender == genderChoice() &
+                                     grade == input$grade, ]
                 })
                 output$view <- renderGvis( # set xlim and ylim consistently
                         # set xlabel and ylabel
@@ -15,6 +16,7 @@ shinyServer(
                                         "scale.score.math",
                                         "scale.score.reading",
                                         options = list(
+                                                title = "Here",
                                                 showAdvancedPanel = FALSE,
                                                 showXMetricPicker = FALSE,
                                                 showYMetricPicker = FALSE,

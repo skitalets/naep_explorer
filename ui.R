@@ -8,7 +8,7 @@ shinyUI(pageWithSidebar(
                                     c("All", "Male", "Female")),
 
                 selectInput("grade", "Grade Level:", choices = 
-                                    c(4, 8, 12))
+                                    c(4, 8))
                 # possible tools:
                 # region selector
                 # gender selector (need add'l data)
