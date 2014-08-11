@@ -46,7 +46,7 @@ shinyUI(pageWithSidebar(
                                         census-defined region each state
                                         belongs to. I assumed prior to running
                                         the charts that there would be some
-                                        clearly regional variability in starting
+                                        clear regional variability in starting
                                         point, growth, and ending point. That's
                                         true to some extent, but the regional
                                         variability is much more muted than I
