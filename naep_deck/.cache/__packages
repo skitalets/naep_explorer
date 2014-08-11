@@ -1,0 +1,16 @@
+base
+data.table
+datasets
+googleVis
+graphics
+grDevices
+methods
+reshape2
+rJava
+shiny
+shinyapps
+slidify
+stats
+utils
+xlsx
+xlsxjars
