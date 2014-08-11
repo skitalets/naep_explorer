@@ -19,10 +19,10 @@ shinyServer(
                                                 title = "Here",
                                                 vAxis = "{minValue: 190}",
                                                 showAdvancedPanel = FALSE,
-                                                showXMetricPicker = FALSE,
-                                                showYMetricPicker = FALSE,
+                                                showXMetricPicker = TRUE,
+                                                showYMetricPicker = TRUE,
                                                 showXScalePicker = FALSE,
                                                 showYScalePicker = FALSE,
-                                                showSidePanel = FALSE)))
+                                                showSidePanel = TRUE)))
                         }
 )
