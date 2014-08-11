@@ -42,6 +42,17 @@ shinyUI(pageWithSidebar(
                                         motion plot shows how states'
                                         performance has evolved over
                                         time.</b>")),
+                                 p(HTML("The different colors denote the
+                                        census-defined region each state
+                                        belongs to. I assumed prior to running
+                                        the charts that there would be some
+                                        clearly regional variability in starting
+                                        point, growth, and ending point. That's
+                                        true to some extent, but the regional
+                                        variability is much more muted than I
+                                        expected. If you hover over each bubble,
+                                        you'll see both the state name and
+                                        region pop up.")),
                                  p(HTML("One nice feature of the motion chart
                                         is the ability to track an individual
                                         state over time. To focus on one state's

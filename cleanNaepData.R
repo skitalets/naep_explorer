@@ -123,6 +123,31 @@ grade8 <- processFiles(math.grade8, reading.grade8, math.grade8.gender,
 
 naep.clean <- rbindlist(list(grade4, grade8))
 
+# Use Census-defined Regions to set region data -- doing this for each row
+# is not ideal but I couldn't think of a good way to pull in a separate
+# table at runtime when the plots are being generated
+# http://nces.ed.gov/nationsreportcard/hsts/tabulations/regions.aspx
+
+northeast <- c("Connecticut", "Maine", "Massachusetts", "New Hampshire",
+               "New Jersey", "New York", "Pennsylvania", "Rhode Island",
+               "Vermont")
+south <- c("Alabama", "Arkansas", "Delaware", "District of Columbia", "Florida",
+           "Georgia", "Kentucky", "Louisiana", "Maryland", "Mississippi",
+           "North Carolina", "Oklahoma", "South Carolina", "Tennessee", "Texas",
+           "Virginia", "West Virginia")
+midwest <- c("Illinois", "Indiana", "Iowa", "Kansas", "Michigan", "Minnesota",
+             "Missouri", "Nebraska", "North Dakota", "Ohio", "South Dakota",
+             "Wisconsin")
+west <- c("Alaska", "Arizona", "California", "Colorado", "Hawaii", "Idaho",
+          "Montana", "Nevada", "New Mexico", "Oregon", "Utah", "Washington",
+          "Wyoming")
+
+naep.clean$region <- "Other" # default should only affect DoDEA after below runs
+naep.clean[state %in% northeast, region := "Northeast"]
+naep.clean[state %in% south, region := "South"]
+naep.clean[state %in% midwest, region := "Midwest"]
+naep.clean[state %in% west, region := "West"]
+
 write.csv(naep.clean, file = "naep_clean.csv", row.names = FALSE)
 
 # Reading-Grade4.xls
